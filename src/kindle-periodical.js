@@ -45,9 +45,12 @@
         content = sanitizeHtml(content, {
             allowedTags      : mobiSupportedTags,
             allowedAttributes: {
-                meta: [ 'charset' ],
+                meta: [ 'charset', 'content', 'http-equiv' ],
                 a   : [ 'href', 'name', 'target' ],
-                img : [ 'src', 'srcset' ]
+                img : [ 'src', 'srcset' ],
+                p   : [ 'class' ],
+                div : [ 'class' ],
+                link : [ 'rel', 'href' ]
             }
         });
 
@@ -310,6 +313,9 @@
             if (params.cover) {
                 await FileHandler.copyFile(params.cover, path.join(bookFolderPath, path.basename(params.cover)));
             }
+
+            await FileHandler.copyFile('style.css', path.join(bookFolderPath, path.basename('style.css')));
+
 
             let createdSections = await createSections(params.sections);
             await createContentHTMLFile(createdSections);

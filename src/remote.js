@@ -89,6 +89,11 @@
                 const cleanedFileName = cleanedBaseName + extension;
                 const cleanedImagePath = path.join(process.cwd(), 'book', cleanedFileName);
 
+                if (cleanedFileName.length > 250) {
+                    console.log('name too long, skippin')
+                    continue;
+                }
+
                 // check if absolute url, try to fix if not
                 if (!isAbsoluteUrl(img.src)) {
                     if (article.url) {

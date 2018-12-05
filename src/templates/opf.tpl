@@ -23,6 +23,8 @@
         <manifest>
             <item href="contents.html" media-type="application/xhtml+xml" id="contents"/>
             <item href="nav-contents.ncx" media-type="application/x-dtbncx+xml" id="nav-contents"/>
+            <item id="stylesheet" href="style.css" media-type="text/css"/>
+
             <% if(cover) { %><item href="<%= cover %>" media-type="image/jpg" id="book-cover-image" /><% } %>
             <%= manifest_items %>
         </manifest>
