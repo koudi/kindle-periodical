@@ -224,11 +224,11 @@
             }
 
             let dateString = null
+	    let currentDate = Date.now();
 
             if (params.date) {
                 dateString = params.date
             } else {
-                let currentDate = Date.now();
                 dateString = new Date();
                 dateString = dateString.getFullYear() + '-' + (dateString.getMonth() + 1) + '-' + dateString.getDay();
             }
