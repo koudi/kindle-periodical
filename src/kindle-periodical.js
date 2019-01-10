@@ -223,9 +223,15 @@
                 }
             }
 
-            let currentDate = Date.now();
-            let dateString = new Date();
-            dateString = dateString.getFullYear() + '-' + (dateString.getMonth() + 1) + '-' + dateString.getDay();
+            let dateString = null
+
+            if (params.date) {
+                dateString = params.date
+            } else {
+                let currentDate = Date.now();
+                dateString = new Date();
+                dateString = dateString.getFullYear() + '-' + (dateString.getMonth() + 1) + '-' + dateString.getDay();
+            }
 
             let cover = '';
             if (params.cover) {
